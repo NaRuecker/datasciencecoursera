@@ -132,9 +132,7 @@ $(document).ready(function () {
 </div>
 
 
-<pre class="r"><code>library(leaflet)</code></pre>
 <pre><code>## Warning: package 'leaflet' was built under R version 3.3.3</code></pre>
-<pre class="r"><code>library(rgdal)</code></pre>
 <pre><code>## Warning: package 'rgdal' was built under R version 3.3.3</code></pre>
 <pre><code>## Loading required package: sp</code></pre>
 <pre><code>## Warning: package 'sp' was built under R version 3.3.3</code></pre>
@@ -146,32 +144,9 @@ $(document).ready(function () {
 ##  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
 ##  Path to PROJ.4 shared files: C:/Users/Ruecker-PC/Documents/R/win-library/3.3/rgdal/proj
 ##  Linking to sp version: 1.2-5</code></pre>
-<pre class="r"><code>HI_Germany &lt;- data.frame(
-              city= c(&quot;Bremen&quot;, &quot;Dresden&quot;, &quot;Hannover&quot;,&quot;Berlin&quot;,&quot;Duesseldorf&quot;, &quot;Koeln&quot;, &quot;Frankfurt am Main&quot;, &quot;Hamburg&quot;, &quot;Stuttgart&quot;, &quot;Muenchen&quot;, &quot;Wolfsburg&quot;),
-              income = c(3061,2845,3174,2879,3935,3569,3606,3588,3850,4132,4651),
-              pop=c(557464,543825,532163,3520031,612178,1060582,732688,1805316,623738,1450381,124045),
-              Lat=c(53.076001,51.049746,52.375983,52.52057,51.223503,50.9392,50.139364,53.555198,48.781584,48.129722,52.425013),
-              Lng=c(8.78294,13.72585,9.744953,13.39162,6.767618,6.950803,8.669482,9.974556,9.14696,11.56364,10.80084)
-)
-
-pal &lt;- colorNumeric(
-  palette = &quot;Reds&quot;,
-  domain = HI_Germany$income
-)
-
-Ger_map &lt;- HI_Germany %&gt;%
-            leaflet() %&gt;%
-              addTiles() %&gt;%
-                addMarkers(popup=~city) %&gt;%
-                addCircles(lng=~Lng, lat=~Lat, weight = 1, radius =~sqrt(pop)*30, color= ~pal(income), fillOpacity = 0.75) %&gt;%
-                  addLegend(&quot;bottomright&quot;, pal = pal, values = ~income,
-                      title = &quot;Household income per month&quot;,
-                      labFormat = labelFormat(prefix = &quot;$&quot;),
-                      opacity = 1)</code></pre>
 <pre><code>## Assuming 'Lng' and 'Lat' are longitude and latitude, respectively</code></pre>
-<pre class="r"><code>Ger_map</code></pre>
-<div id="htmlwidget-d4df15705a5285339498" style="width:672px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d4df15705a5285339498">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[53.076001,51.049746,52.375983,52.52057,51.223503,50.9392,50.139364,53.555198,48.781584,48.129722,52.425013],[8.78294,13.72585,9.744953,13.39162,6.767618,6.950803,8.669482,9.974556,9.14696,11.56364,10.80084],null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Bremen","Dresden","Hannover","Berlin","Duesseldorf","Koeln","Frankfurt am Main","Hamburg","Stuttgart","Muenchen","Wolfsburg"],null,null,null,null,null,null]},{"method":"addCircles","args":[[53.076001,51.049746,52.375983,52.52057,51.223503,50.9392,50.139364,53.555198,48.781584,48.129722,52.425013],[8.78294,13.72585,9.744953,13.39162,6.767618,6.950803,8.669482,9.974556,9.14696,11.56364,10.80084],[22399.0535514338,22123.3473959073,21884.8509247836,56285.2369631682,23472.5414047989,30895.3685849514,25679.1588647292,40308.6144639083,23693.1255852832,36129.5294738251,10566.0068143079],null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":["#FEE1D3","#FFF5F0","#FECFBB","#FFF2EB","#F14431","#FC8A6A","#FC8463","#FC8766","#F6573C","#D62421","#67000D"],"weight":1,"opacity":0.5,"fill":true,"fillColor":["#FEE1D3","#FFF5F0","#FECFBB","#FFF2EB","#F14431","#FC8A6A","#FC8463","#FC8766","#F6573C","#D62421","#67000D"],"fillOpacity":0.75,"dashArray":null},null,null,null,null,null,null]},{"method":"addLegend","args":[{"colors":["#FFF5F0 , #FFE7DB 8.58250276854928%, #FECBB6 19.656699889258%, #FDA88B 30.7308970099668%, #FC8564 41.8050941306755%, #F86043 52.8792912513843%, #EB372A 63.953488372093%, #CB181D 75.0276854928018%, #A91016 86.1018826135105%, #75020F 97.1760797342193%, #67000D "],"labels":["$3,000","$3,200","$3,400","$3,600","$3,800","$4,000","$4,200","$4,400","$4,600"],"na_color":null,"na_label":"NA","opacity":1,"position":"bottomright","type":"numeric","title":"Household income per month","extra":{"p_1":0.0858250276854928,"p_n":0.971760797342193},"layerId":null,"className":"info legend"}]}],"limits":{"lat":[48.129722,53.555198],"lng":[6.767618,13.72585]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-353688c8d4a534b2665c" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-353688c8d4a534b2665c">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[53.076001,51.049746,52.375983,52.52057,51.223503,50.9392,50.139364,53.555198,48.781584,48.129722,52.425013],[8.78294,13.72585,9.744953,13.39162,6.767618,6.950803,8.669482,9.974556,9.14696,11.56364,10.80084],null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Bremen","Dresden","Hannover","Berlin","Duesseldorf","Koeln","Frankfurt am Main","Hamburg","Stuttgart","Muenchen","Wolfsburg"],null,null,null,null,null,null]},{"method":"addCircles","args":[[53.076001,51.049746,52.375983,52.52057,51.223503,50.9392,50.139364,53.555198,48.781584,48.129722,52.425013],[8.78294,13.72585,9.744953,13.39162,6.767618,6.950803,8.669482,9.974556,9.14696,11.56364,10.80084],[22399.0535514338,22123.3473959073,21884.8509247836,56285.2369631682,23472.5414047989,30895.3685849514,25679.1588647292,40308.6144639083,23693.1255852832,36129.5294738251,10566.0068143079],null,null,{"lineCap":null,"lineJoin":null,"clickable":true,"pointerEvents":null,"className":"","stroke":true,"color":["#FEE1D3","#FFF5F0","#FECFBB","#FFF2EB","#F14431","#FC8A6A","#FC8463","#FC8766","#F6573C","#D62421","#67000D"],"weight":1,"opacity":0.5,"fill":true,"fillColor":["#FEE1D3","#FFF5F0","#FECFBB","#FFF2EB","#F14431","#FC8A6A","#FC8463","#FC8766","#F6573C","#D62421","#67000D"],"fillOpacity":0.75,"dashArray":null},null,null,null,null,null,null]},{"method":"addLegend","args":[{"colors":["#FFF5F0 , #FFE7DB 8.58250276854928%, #FECBB6 19.656699889258%, #FDA88B 30.7308970099668%, #FC8564 41.8050941306755%, #F86043 52.8792912513843%, #EB372A 63.953488372093%, #CB181D 75.0276854928018%, #A91016 86.1018826135105%, #75020F 97.1760797342193%, #67000D "],"labels":["$3,000","$3,200","$3,400","$3,600","$3,800","$4,000","$4,200","$4,400","$4,600"],"na_color":null,"na_label":"NA","opacity":1,"position":"bottomright","type":"numeric","title":"Household income per month","extra":{"p_1":0.0858250276854928,"p_n":0.971760797342193},"layerId":null,"className":"info legend"}]}],"limits":{"lat":[48.129722,53.555198],"lng":[6.767618,13.72585]}},"evals":[],"jsHooks":[]}</script>
 
 
 
