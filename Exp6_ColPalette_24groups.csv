@@ -1,0 +1,25 @@
+Drug,xMIC,MOA,Palette,ConcColor,Shape,ShapeinterA
+CIPRO,MICx1,DNA Replication; Transcription,magenta1,,cube,square
+CIPRO,MICx2,DNA Replication; Transcription,magenta2,,cube,square
+CIPRO,MICx4,DNA Replication; Transcription,magenta3,,cube,circle
+ETHA,MICx0.25,Cell Wall (Arabinogalactans),royalblue1,,sphere,circle
+ETHA,MICx0.5,Cell Wall (Arabinogalactans),royalblue2,,sphere,circle
+ETHA,MICx1,Cell Wall (Arabinogalactans),royalblue3,,sphere,diamond
+ETHI,MICx2,"Cell envelope, Mycolic Acids",green1,,tetrahedron,diamond
+ETHI,MICx4,"Cell envelope, Mycolic Acids",green2,,tetrahedron,diamond
+ETHI,MICx8,"Cell envelope, Mycolic Acids",green3,,tetrahedron,triangle
+GSK_KasA,MICx2,"Cell envelope, Mycolic Acids",purple1,,octahedron,triangle
+GSK_KasA,MICx4,"Cell envelope, Mycolic Acids",purple2,,octahedron,triangle
+GSK_KasA,MICx8,"Cell envelope, Mycolic Acids",purple3,,octahedron,circle
+Levo,MICx0.25,DNA Replication; Transcription,red1,,sphere,circle
+Levo,MICx0.5,DNA Replication; Transcription,red2,,sphere,circle
+Levo,MICx1,DNA Replication; Transcription,red3,,sphere,square
+LINE,MICx0.5,Protein biosynthesis,yellow1,,cube,square
+LINE,MICx1,Protein biosynthesis,yellow2,,cube,square
+LINE,MICx2,Protein biosynthesis,yellow3,,cube,square
+PAS,MICx2,Folate (DNA/RNA Precursor),lightskyblue2,,cube,square
+PAS,MICx4,Folate (DNA/RNA Precursor),lightskyblue3,,cube,square
+PAS,MICx8,Folate (DNA/RNA Precursor),lightskyblue4,,cube,diamond
+RIF,MICx1,Transcription,seagreen1,,tetrahedron,diamond
+RIF,MICx2,Transcription,seagreen2,,tetrahedron,diamond
+RIF,MICx4,Transcription,seagreen3,,tetrahedron,diamond

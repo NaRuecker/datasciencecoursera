@@ -1,0 +1,59 @@
+---
+title: "Interactive PCA"
+author: "Nadine Ruecker"
+date: "November 18, 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(ggplot2)
+library(plotly)
+```
+
+## Week 3 Assignment
+
+### Nadine Ruecker
+#### Nov 18th 2017
+
+## Principal component Analysis
+```{r, echo = FALSE, eval= TRUE, warning=FALSE, message=FALSE}
+
+cdata <- read.csv("cdata.csv")
+# Define data and Group
+
+Name <- cdata[,2]
+Drug <- cdata[,3]
+Conc <- cdata[,5]
+
+pcadata <- as.data.frame(read.csv("Exp6_24groups.csv"))
+Colinfo <- read.csv("Exp6_Colpalette_24groups.csv")
+Palette <- as.vector(Colinfo$Palette)
+
+
+plot_ly(pcadata,type="scatter3d", x =~PC1, y=~PC2, z=~PC3,color= Drug, colors = Palette, 
+        marker = list(symbol = 'sphere', sizemode = 'diameter'),
+        mode = 'text',
+        text = ~paste(Drug,Conc) ) %>%
+  add_markers() %>%
+  layout(title = 'Exp6',
+         scene = list(xaxis = list(title = 'PC1',
+                                   range = c(-25, 25),
+                                   zerolinewidth = 1,
+                                   ticklen = 5,
+                                   gridwidth = 2),
+                      yaxis = list(title = 'PC2',
+                                   range = c(-8, 8),
+                                   zerolinewidth = 1,
+                                   ticklen = 5,
+                                   gridwith = 2),
+                      zaxis = list(title = 'PC3',
+                                   range = c(-8, 8),
+                                   zerolinewidth = 1,
+                                   ticklen = 5,
+                                   gridwith = 2)))
+
+```
+
+
+
