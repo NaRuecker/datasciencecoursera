@@ -1,0 +1,26 @@
+PCA App Pitch
+========================================================
+author: Nadine Ruecker
+date: Nov 25th 2017
+autosize: true
+
+Data
+========================================================
+
+The data processed in this app, results from expression analysis.
+Different drugs were tested i different concentration and the same 160 genes were analysed.
+
+
+Slide With Code
+========================================================
+
+```{r}
+summary(cars)
+```
+
+Slide With Plot
+========================================================
+
+```{r, echo=FALSE}
+plot(cars)
+```
